@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import AOS from "aos";
+import pink from '../images/pink-flower.png';
+import red from '../images/red-flower.png';
+import rose from '../images/rose-flower.png';
+import yellow from '../images/yellow-flower.png';
 import "aos/dist/aos.css";
 import { useEffect } from 'react';
 
@@ -32,7 +36,7 @@ export default function SneakPeek() {
         <div className="bg-[#F7D6E059] rounded-lg shadow-md p-6 flex flex-col items-center">
           <div className="relative w-[300px] h-[300px]">
             <Image
-              src="https://i.ibb.co/n3gqV6N/image.png"
+              src={pink}
               alt="Pink Flowers"
               className="rounded-lg object-cover"
               fill
@@ -49,7 +53,7 @@ export default function SneakPeek() {
         <div className="bg-[#F7D6E059] rounded-lg shadow-md p-6 flex flex-col items-center">
           <div className="relative w-[300px] h-[300px]">
             <Image
-              src="https://i.ibb.co/mqFqjq6/image.png"
+              src={rose}
               alt="Red Flowers"
               className="rounded-lg object-cover"
               fill
@@ -66,7 +70,7 @@ export default function SneakPeek() {
           <div className="bg-[#F7D6E059] rounded-lg shadow-md p-6 flex flex-col items-center">
           <div className="relative w-[300px] h-[300px]">
             <Image
-              src="https://i.ibb.co/4dtdKvy/image.png"
+              src={yellow}
               alt="Yellow Flowers"
               className="rounded-lg object-cover"
               fill

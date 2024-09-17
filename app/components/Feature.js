@@ -1,6 +1,7 @@
 import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import red from '../images/red-flower.png';
 import { useEffect } from 'react';
 
 export default function Feature() {
@@ -15,7 +16,7 @@ export default function Feature() {
       <div className="md:w-1/2 flex justify-center md:justify-start mb-8 md:mb-0 order-4">
       <div data-aos="fade-up">
         <Image
-          src="https://i.ibb.co/FBKJhMc/image.png" // Image URL for the feature
+          src={red}
           alt="Flower Bouquet"
           className="rounded-xl"
           width={500}

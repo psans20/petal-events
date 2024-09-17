@@ -3,6 +3,8 @@
 import { Inter, Roboto } from "next/font/google";
 import { useEffect } from "react";
 import Image from "next/image";
+import pink from '../images/pink-flower.png';
+import red from '../images/red-flower.png';
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -59,7 +61,7 @@ const inter = Inter({
           {/* For mobile use the first image, and for desktop screens, switch to the provided one */}
           <div data-aos="fade-up">
           <Image
-            src="https://i.ibb.co/n3gqV6N/image.png" // Mobile image
+            src={pink} // Mobile image
             alt="Flower Bouquet"
             className="rounded-xl block md:hidden"
             width={500}
@@ -69,7 +71,7 @@ const inter = Inter({
           </div>  
           <div data-aos="fade-up">
           <Image
-            src="https://i.ibb.co/FBKJhMc/image.png" // Desktop image
+            src={red} // Desktop image
             alt="Flower Bouquet Desktop"
             className="rounded-xl hidden md:block"
             width={675}
