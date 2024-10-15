@@ -2,6 +2,9 @@
 
 import { Roboto } from "next/font/google";
 import { useState } from "react";
+import yellow from '../images/yellow-flower.png';
+import Image from "next/image";
+
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -19,11 +22,12 @@ export default function Flower() {
         {/* Thumbnail Images */}
         
         {/* Main Product Image */}
-        <img
-          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg"
-          src="http://localhost:3000/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fyellow-flower.f85d7524.png&w=384&q=75"
-          alt="Yellow Flowers"
-        />
+        <Image
+  src={yellow}
+  alt="Yellow Flowers"
+ 
+  className="w-full h-96 lg:h-[32rem] object-cover rounded-lg"
+/>
       </div>
 
       {/* Right Section: Product Details */}
