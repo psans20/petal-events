@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { Roboto } from 'next/font/google'
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -32,7 +33,7 @@ export default function Navbar() {
             
         
             <div className="flex justify-center">
-                <img src="https://i.ibb.co/7rRH8P1/image.png" className="w-28 mx-auto" alt="Petal Logo" />
+                <Link href="/"><img src="https://i.ibb.co/7rRH8P1/image.png" className="w-28 mx-auto hover:cursor-pointer" alt="Petal Logo" /></Link>
             </div>
        
             

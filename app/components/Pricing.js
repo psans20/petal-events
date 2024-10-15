@@ -5,11 +5,13 @@ import Image from "next/image";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 import pink from '../images/pink-flower.png';
 import red from '../images/red-flower.png';
 import rose from '../images/rose-flower.png';
 import yellow from '../images/yellow-flower.png';
 import { useEffect } from 'react';
+import { useRouter } from "next/router";
 
 export default function FeaturedProducts() {
   const scrollRef = useRef(null);
@@ -44,6 +46,29 @@ export default function FeaturedProducts() {
     setCurrentIndex(index);
   };
 
+  const flowers = [
+    {
+      name: "Pink Flower",
+      productImage: pink,
+      price: 25
+    },
+    {
+      name: "Red Flowers",
+      productImage: red,
+      price: 25
+    },
+    {
+      name: "Yellow Flowers",
+      productImage: yellow,
+      price: 30
+    },
+    {
+      name: "Rose Flowers",
+      productImage: rose,
+      price: 30
+    }
+  ];
+
   return (
     <div className="flex flex-col items-center text-center space-y-6 py-12 bg-[#F7D6E0] md:bg-[#F5F5F5] px-6" id="pricing">
       {/* Heading */}
@@ -76,8 +101,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">PINK FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£25</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+            <Link href="/product">
+           Buy Now
+           </Link>
             </button>
           </div>
           </div> 
@@ -94,8 +121,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">YELLOW FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+     <Link href="/product">
+           Buy Now
+           </Link>
             </button>
           </div>
           </div> 
@@ -111,8 +140,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+           <Link href="/product">
+           Buy Now
+           </Link>
             </button> 
           </div>
           </div> 
@@ -128,8 +159,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">YELLOW FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+        <Link href="/product">
+           Buy Now
+           </Link>
             </button>
           </div>
           </div> 
@@ -146,8 +179,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+          <Link href="/product">
+           Buy Now
+           </Link>
             </button> 
           </div>
           </div> 
@@ -165,8 +200,10 @@ export default function FeaturedProducts() {
             <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
             <p className="text-gray-600">Variant</p>
             <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-green-500 text-white py-2 px-4 rounded-lg w-full hover:bg-green-400 duration-100">
-              Message Us
+            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
+      <Link href="/product">
+           Buy Now
+           </Link>
             </button> 
           </div>
           </div> 
