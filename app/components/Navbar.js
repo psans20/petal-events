@@ -106,6 +106,11 @@ export default function Navbar() {
                         ) : (
                             <p className="text-gray-500">No items in cart.</p>
                         )}
+                        {cartItems.length > 0 && (
+                            <button className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
+                               Checkout
+                            </button>
+                        )}
                     </div>
                 )}
             </div>
@@ -168,6 +173,11 @@ export default function Navbar() {
                                         </ul>
                                     ) : (
                                         <p className="text-gray-500">No items in cart.</p>
+                                    )}
+                                    {cartItems.length > 0 && (
+                                        <button className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
+                                            Checkout
+                                        </button>
                                     )}
                                 </div>
                             )}
