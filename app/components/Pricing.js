@@ -69,15 +69,22 @@ export default function FeaturedProducts() {
     }
   ];
 
+  // Handle Buy Now click to save specific flower data to localStorage
+  const handleBuyNow = (flower) => {
+    const { name, productImage, price } = flower;
+    const productData = { name, productImage, price };
+    localStorage.setItem('selectedProduct', JSON.stringify(productData));
+  };
+
   return (
     <div className="flex flex-col items-center text-center space-y-6 py-12 bg-[#F7D6E0] md:bg-[#F5F5F5] px-6" id="pricing">
       {/* Heading */}
       <div data-aos="fade-up" className="space-y-6">
-      <h2 className="text-black font-bold text-lg">For All Events</h2>
-      <h1 className="text-black font-bold text-4xl">Featured Products</h1>
-      <p className="text-black font-normal text-lg">
-        The world of plants is at your fingertips: jump in and explore today.
-      </p>
+        <h2 className="text-black font-bold text-lg">For All Events</h2>
+        <h1 className="text-black font-bold text-4xl">Featured Products</h1>
+        <p className="text-black font-normal text-lg">
+          The world of plants is at your fingertips: jump in and explore today.
+        </p>
       </div>
 
       {/* Product Container */}
@@ -89,124 +96,30 @@ export default function FeaturedProducts() {
           className="flex space-x-4 md:space-x-7 overflow-x-scroll no-scrollbar mt-5"
         >
           {/* Product Cards */}
-           <div data-aos="fade-up">
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src={pink}
-              alt="Pink Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Ensures the image fits within a fixed ratio
-            />
-            <h3 className="text-black font-bold mt-2">PINK FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£25</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-            <Link href="/product">
-           Buy Now
-           </Link>
-            </button>
-          </div>
-          </div> 
-
-           <div data-aos="fade-up"> {/* Additional Product Cards */}
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src={yellow}
-              alt="Yellow Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Same size and ratio
-            />
-            <h3 className="text-black font-bold mt-2">YELLOW FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-     <Link href="/product">
-           Buy Now
-           </Link>
-            </button>
-          </div>
-          </div> 
-  <div data-aos="fade-up">
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src={rose}
-              alt="Rose Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Consistent size
-            />
-            <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-           <Link href="/product">
-           Buy Now
-           </Link>
-            </button> 
-          </div>
-          </div> 
-  <div data-aos="fade-up">
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src="https://i.ibb.co/FBKJhMc/image.png"
-              alt="Yellow Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Consistent size
-            />
-            <h3 className="text-black font-bold mt-2">YELLOW FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-        <Link href="/product">
-           Buy Now
-           </Link>
-            </button>
-          </div>
-          </div> 
-
-          <div data-aos="fade-up">
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src={rose}
-              alt="Rose Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Consistent size
-            />
-            <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-          <Link href="/product">
-           Buy Now
-           </Link>
-            </button> 
-          </div>
-          </div> 
-
-
-          <div data-aos="fade-up">
-          <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
-            <Image
-              src={rose}
-              alt="Rose Flowers"
-              width={300}
-              height={300}
-              className="rounded-lg object-cover w-full h-[250px]"  // Consistent size
-            />
-            <h3 className="text-black font-bold mt-2">ROSE FLOWERS</h3>
-            <p className="text-gray-600">Variant</p>
-            <p className="text-black font-bold">£30</p>
-            <button className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-      <Link href="/product">
-           Buy Now
-           </Link>
-            </button> 
-          </div>
-          </div> 
+          {flowers.map((flower, index) => (
+            <div key={index} data-aos="fade-up">
+              <div className="min-w-[250px] md:min-w-[350px] bg-[#FBDFE7] rounded-lg shadow-xl p-4">
+                <Image
+                  src={flower.productImage}
+                  alt={flower.name}
+                  width={300}
+                  height={300}
+                  className="rounded-lg object-cover w-full h-[250px]"  // Ensures the image fits within a fixed ratio
+                />
+                <h3 className="text-black font-bold mt-2">{flower.name.toUpperCase()}</h3>
+                <p className="text-gray-600">Variant</p>
+                <p className="text-black font-bold">£{flower.price}</p>
+                <button 
+                  className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100"
+                  onClick={() => handleBuyNow(flower)}
+                >
+                  <Link href="/product">
+                    Buy Now
+                  </Link>
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Dots and Arrows Container */}
