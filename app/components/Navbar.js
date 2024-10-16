@@ -72,6 +72,27 @@ export default function Navbar() {
                 </Link>
             </div>
 
+            <div className="flex items-center md:hidden gap-4">
+                <button className="flex items-center gap-2" onClick={() => { toggleCartDropdown(); toggleMenu(); }}>
+                    <FaShoppingCart className="text-black" />
+                    <span className="text-black">({cartItems.reduce((total, item) => total + item.quantity, 0)})</span>
+                </button>
+                <svg
+                    onClick={toggleMenu}
+                    className="cursor-pointer"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"
+                        fill="black"
+                    />
+                </svg>
+            </div>
+
             <div className="flex-1 hidden md:flex justify-end relative">
                 <button
                     className="bg-[#4A051C] border border-[#000] rounded-xl text-white py-2 px-6 ml-4 hover:bg-purple-600 duration-100 flex items-center gap-2"
@@ -108,28 +129,12 @@ export default function Navbar() {
                         )}
                         {cartItems.length > 0 && (
                             <button className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
-                               Checkout
+                                Go to Checkout
                             </button>
                         )}
                     </div>
                 )}
             </div>
-
-            {/* Mobile Menu Icon */}
-            <svg
-                onClick={toggleMenu}
-                className="cursor-pointer md:hidden"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    d="M4 6H20V8H4V6ZM4 11H20V13H4V11ZM4 16H20V18H4V16Z"
-                    fill="black"
-                />
-            </svg>
 
             {/* Mobile Menu */}
             {isOpen && (
@@ -176,7 +181,7 @@ export default function Navbar() {
                                     )}
                                     {cartItems.length > 0 && (
                                         <button className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
-                                            Checkout
+                                            Go to Checkout
                                         </button>
                                     )}
                                 </div>
