@@ -44,9 +44,9 @@ const inter = Inter({
   
           {/* Buttons Section */}
           <div className={`flex space-x-4 ${roboto.className}`}>
-            <button className="bg-black text-white py-2.5 px-5 rounded-xl font-normal md:bg-[#4A051C] md:border md:border-black hover:bg-gray-900 md:hover:bg-purple-600 duration-100">
+           <a href="/product"> <button className="bg-black text-white py-2.5 px-5 rounded-xl font-normal md:bg-[#4A051C] md:border md:border-black hover:bg-gray-900 md:hover:bg-purple-600 duration-100">
               Our Products
-            </button>
+            </button></a>
             <button className="border border-[#4A051C] text-[#4A051C] py-2.5 px-5 rounded-xl font-normal md:border-black md:text-black hover:bg-pink-200 duration-100">
               Message Us
             </button>
