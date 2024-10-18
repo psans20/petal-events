@@ -40,6 +40,7 @@ export default function Flower() {
   const [selectedVariant, setSelectedVariant] = useState("Yellow Flowers");
   const [quantity, setQuantity] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState(flowers[2]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   useEffect(() => {
     // Fetch product from localStorage on component mount
@@ -80,11 +81,18 @@ export default function Flower() {
         detail: { showCart: true, isMobile: isMobile() }
       });
       window.dispatchEvent(cartUpdatedEvent);
+
+      // Show the modal
+      setIsModalVisible(true);
     }
   };
 
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
   return (
-    <div className={`flex flex-col lg:flex-row items-start lg:items-stretch p-4 mt-10 ${roboto.className} w-full max-w-6xl mx-auto  gap-12 md:gap-24`}>
+    <div className={`flex flex-col lg:flex-row items-start lg:items-stretch p-4 mt-10 ${roboto.className} w-full max-w-6xl mx-auto gap-12 md:gap-24`}>
       {/* Left Section: Image Gallery */}
       <div className="flex flex-col gap-4">
         {/* Main Product Image */}
@@ -158,32 +166,32 @@ export default function Flower() {
         {/* Free Shipping Text */}
         <p className="text-sm text-gray-500 mt-4 text-center">Free shipping over £50</p>
 
-        {/* Accordion Sections */}
-        <div className="w-full mt-6">
-          {/* Details Section */}
-          <details className="border-t py-4">
-            <summary className="font-semibold text-lg cursor-pointer">Details</summary>
-            <p className="mt-2 text-md text-gray-700">
-              Illuminate your special day with our exquisite {selectedProduct ? selectedProduct.name : "Yellow Wedding Flowers"}. These vibrant blooms, symbolizing joy, friendship, and happiness, are a timeless choice for couples looking to infuse their wedding with warmth and elegance. Perfectly suited for both intimate ceremonies and grand celebrations, these radiant flowers bring an air of sophistication and cheer.
-            </p>
-          </details>
-
-          {/* Shipping Section */}
-          <details className="border-t py-4">
-            <summary className="font-semibold text-lg cursor-pointer">Shipping</summary>
-            <p className="mt-2 text-md text-gray-700">
-              All orders are carefully packaged to preserve the beauty and quality of your blooms. You'll receive tracking details once your order ships, so you can follow the journey right to your door. In case of any issues, our customer support team is here to assist you every step of the way!
-            </p>
-          </details>
-
-          {/* Returns Section */}
-          <details className="border-t py-4">
-            <summary className="font-semibold text-lg cursor-pointer">Returns</summary>
-            <p className="mt-2 text-md text-gray-700">
-              We want you to be completely satisfied with your purchase! If you're not fully happy with your {selectedProduct ? selectedProduct.name : "Yellow Wedding Flowers"}, we offer a hassle-free return policy. You can return your order within 30 days for a full refund or exchange.
-            </p>
-          </details>
-        </div>
+        {/* Modal for Add to Cart */}
+        {isModalVisible && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+            <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full relative">
+              <button onClick={closeModal} className="absolute top-2 right-2 text-black text-xl">&times;</button>
+              <p className="font-bold mb-2">Product successfully added to your shopping cart</p>
+              <div className="flex items-center mb-4">
+                <div className="w-16 h-16 mr-4">
+                  <Image src={selectedProduct.productImage} alt={selectedProduct.name} width={64} height={64} className="object-cover rounded-md" />
+                </div>
+                <div>
+                  <p className="font-semibold">{selectedProduct.name}</p>
+                  <p>£{selectedProduct.price}</p>
+                  <p>Quantity: {quantity}</p>
+                </div>
+              </div>
+              <p className="font-semibold">Subtotal: £{(selectedProduct.price * quantity).toFixed(2)}</p>
+              <button onClick={closeModal} className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
+                Continue Shopping
+              </button>
+              <button className="mt-2 w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-all">
+                Go to Checkout
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
