@@ -109,14 +109,15 @@ export default function FeaturedProducts() {
                 <h3 className="text-black font-bold mt-2">{flower.name.toUpperCase()}</h3>
                 <p className="text-gray-600">Variant</p>
                 <p className="text-black font-bold">£{flower.price}</p>
-                <button 
+                <Link href="/product"><button 
                   className="mt-2 bg-[#4A051C] text-white py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100"
                   onClick={() => handleBuyNow(flower)}
                 >
-                  <Link href="/product">
+                 
                     Buy Now
-                  </Link>
+                 
                 </button>
+                </Link>
               </div>
             </div>
           ))}

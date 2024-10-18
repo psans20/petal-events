@@ -57,6 +57,10 @@ export default function Flower() {
     }
   }, [selectedVariant]);
 
+  const isMobile = () => {
+    return window.innerWidth <= 768; // Assume mobile if screen width is 768px or less
+  };
+
   const addToCart = () => {
     if (selectedProduct) {
       const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -71,8 +75,10 @@ export default function Flower() {
       }
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
 
-      // Optionally trigger an event to notify Navbar of cart updates
-      const cartUpdatedEvent = new CustomEvent('cartUpdated');
+      // Dispatch an event to notify Navbar of cart updates
+      const cartUpdatedEvent = new CustomEvent('cartUpdated', {
+        detail: { showCart: true, isMobile: isMobile() }
+      });
       window.dispatchEvent(cartUpdatedEvent);
     }
   };

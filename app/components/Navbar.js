@@ -28,9 +28,13 @@ export default function Navbar() {
         }
 
         // Listen for cart updates from other components
-        const handleCartUpdate = () => {
+        const handleCartUpdate = (e) => {
             const updatedItems = JSON.parse(localStorage.getItem('cartItems')) || [];
             setCartItems(updatedItems);
+            // If event detail has showCart set to true, open the cart dropdown
+            if (e.detail?.showCart) {
+                setCartDropdown(true);
+            }
         };
 
         window.addEventListener('cartUpdated', handleCartUpdate);
@@ -101,7 +105,7 @@ export default function Navbar() {
                     <FaShoppingCart /> Cart ({cartItems.reduce((total, item) => total + item.quantity, 0)})
                 </button>
                 {cartDropdown && (
-                    <div className="absolute right-0 mt-2 w-64 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50">
+                    <div className="absolute right-0 mt-2 top-8 w-64 bg-white border border-gray-300 rounded-lg shadow-lg p-4 z-50">
                         <p className="font-bold mb-2">Your Cart</p>
                         {cartItems.length > 0 ? (
                             <ul>

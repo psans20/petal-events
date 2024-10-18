@@ -45,13 +45,12 @@ export default function SneakPeek() {
           </div>
           <h3 className="text-black font-medium text-lg mt-4">PINK FLOWERS</h3>
           <p className="text-gray-600 text-sm">Variant</p>
-         
-          <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-          <Link href="/product">
-           Buy Now
-           </Link>
-          </button>
-      
+          
+          <Link href="/product" passHref>
+  <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-32 md:px-20 rounded-lg w-full hover:bg-[#731635] duration-100">
+    Buy Now
+  </button>
+</Link>
         </div>
 
         {/* Second Product */}
@@ -66,11 +65,11 @@ export default function SneakPeek() {
           </div>
           <h3 className="text-black font-medium text-lg mt-4">RED FLOWERS</h3>
           <p className="text-gray-600 text-sm">Variant</p>
-          <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-          <Link href="/product">
-           Buy Now
-           </Link>
-          </button>
+          <Link href="/product" passHref>
+  <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-32 md:px-20 rounded-lg w-full hover:bg-[#731635] duration-100">
+    Buy Now
+  </button>
+</Link>
         </div>
 
           {/* Third Product */}
@@ -85,14 +84,12 @@ export default function SneakPeek() {
           </div>
           <h3 className="text-black font-medium text-lg mt-4">YELLOW FLOWERS</h3>
           <p className="text-gray-600 text-sm">Variant</p>
-          <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-4 rounded-lg w-full hover:bg-[#731635] duration-100">
-          <Link href="/product">
-           Buy Now
-           </Link>
-          </button>
+          <Link href="/product" passHref>
+  <button className="mt-6 bg-[#4A051C] text-white font-medium py-2 px-32 md:px-20 rounded-lg w-full hover:bg-[#731635] duration-100">
+    Buy Now
+  </button>
+</Link>
         </div>
-
-
 
       </div>
       </div>
