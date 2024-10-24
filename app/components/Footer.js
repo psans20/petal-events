@@ -33,7 +33,7 @@ export default function Footer() {
                     <a href="#" className="underline">Terms of Service</a>
                     <a href="#" className="underline">Refund Policy</a>
                 </div>
-                <p className="text-center">© 2024 Petall. All rights reserved. Developed by Weblift Services</p>
+                <p className="text-center">© 2024 Petall. All rights reserved. UH </p>
             </div>
         </div>
     );
