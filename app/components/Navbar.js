@@ -14,7 +14,7 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
  
-const stripePromise = loadStripe("pk_test_51QpVHxPNmoPysQ0GvmGLk1wWp8c3X2WxUvoskY1qm1GBcGQtfcyPkYrfS3AZmm2EMbdEF1feJUa8t1O608Jjy2pP00Lx3BYUMo");
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
  
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
