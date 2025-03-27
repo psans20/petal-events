@@ -7,6 +7,9 @@ import pink from '../images/pink-flower.png';
 import red from '../images/red-flower.png';
 import rose from '../images/rose-flower.png';
 import Image from "next/image";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe("pk_test_51QpVHxPNmoPysQ0GvmGLk1wWp8c3X2WxUvoskY1qm1GBcGQtfcyPkYrfS3AZmm2EMbdEF1feJUa8t1O608Jjy2pP00Lx3BYUMo");
 
 const roboto = Roboto({
   weight: ["400", "700"],
@@ -17,22 +20,26 @@ const flowers = [
   {
     name: "Pink Flower",
     productImage: pink,
-    price: 25
+    price: 25,
+    publicImageUrl: "https://i.ibb.co/VvxBzzg/pink-flower.png"
   },
   {
     name: "Red Flowers",
     productImage: red,
-    price: 25
+    price: 25,
+    publicImageUrl: "https://i.ibb.co/9tGkh3x/red-flower.png"
   },
   {
     name: "Yellow Flowers",
     productImage: yellow,
-    price: 30
+    price: 30,
+    publicImageUrl: "https://i.ibb.co/XSgJYKM/yellow-flower.png"
   },
   {
     name: "Rose Flowers",
     productImage: rose,
-    price: 30
+    price: 30,
+    publicImageUrl: "https://i.ibb.co/9tGkh3x/red-flower.png"
   }
 ];
 
@@ -41,6 +48,52 @@ export default function Flower() {
   const [quantity, setQuantity] = useState(1);
   const [selectedProduct, setSelectedProduct] = useState(flowers[2]);
   const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const handleCheckout = async () => {
+    if (!selectedProduct) return;
+
+    try {
+      console.log('Starting checkout with product:', selectedProduct);
+      const cartItems = [{
+        name: selectedProduct.name,
+        price: selectedProduct.price,
+        quantity: quantity,
+        productImage: selectedProduct.publicImageUrl // Use the public URL directly
+      }];
+      console.log('Cart items being sent:', cartItems);
+
+      const response = await fetch("/api/checkout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ cartItems }),
+      });
+
+      const data = await response.json();
+      console.log('API response:', data);
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to create Stripe session');
+      }
+
+      if (data.id) {
+        const stripe = await stripePromise;
+        if (!stripe) {
+          throw new Error('Stripe failed to load');
+        }
+        const result = await stripe.redirectToCheckout({ sessionId: data.id });
+        if (result.error) {
+          throw new Error(result.error.message);
+        }
+      } else {
+        throw new Error('No session ID received from server');
+      }
+    } catch (error) {
+      console.error("Checkout failed:", error);
+      alert(`Failed to start checkout: ${error.message}`);
+    }
+  };
 
   useEffect(() => {
     // Fetch product from localStorage on component mount
@@ -99,7 +152,7 @@ export default function Flower() {
         <Image
           src={selectedProduct ? selectedProduct.productImage : yellow}
           alt={selectedProduct ? selectedProduct.name : "Yellow Flowers"}
-          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg"
+          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg product-main-image"
           width={300}
           height={300}
         />
@@ -159,7 +212,7 @@ export default function Flower() {
         <button onClick={addToCart} className="bg-[#540D1A] text-white font-bold py-3 px-8 rounded-md mt-6 w-full hover:bg-[#3e0a13] transition-all">
           Add To Cart
         </button>
-        <button className="bg-white text-black font-bold py-3 px-8 rounded-md mt-3 w-full border border-gray-400 hover:bg-gray-100 transition-all">
+        <button   onClick={handleCheckout} className="bg-white text-black font-bold py-3 px-8 rounded-md mt-3 w-full border border-gray-400 hover:bg-gray-100 transition-all">
           Buy Now
         </button>
 
