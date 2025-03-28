@@ -239,7 +239,7 @@ export default function Flower() {
               <button onClick={closeModal} className="mt-4 w-full bg-[#540D1A] text-white py-2 px-4 rounded-lg hover:bg-[#3e0a13] transition-all">
                 Continue Shopping
               </button>
-              <button className="mt-2 w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-all">
+              <button onClick={handleCheckout} className="mt-2 w-full bg-gray-800 text-white py-2 px-4 rounded-lg hover:bg-gray-600 transition-all">
                 Go to Checkout
               </button>
             </div>
