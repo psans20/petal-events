@@ -9,7 +9,7 @@ import rose from '../images/rose-flower.png';
 import Image from "next/image";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe("pk_test_51QpVHxPNmoPysQ0GvmGLk1wWp8c3X2WxUvoskY1qm1GBcGQtfcyPkYrfS3AZmm2EMbdEF1feJUa8t1O608Jjy2pP00Lx3BYUMo");
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 
 const roboto = Roboto({
   weight: ["400", "700"],
