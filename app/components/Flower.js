@@ -147,15 +147,17 @@ export default function Flower() {
   return (
     <div className={`flex flex-col lg:flex-row items-start lg:items-stretch p-4 mt-10 ${roboto.className} w-full max-w-6xl mx-auto gap-12 md:gap-24`}>
       {/* Left Section: Image Gallery */}
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 w-full items-center">
         {/* Main Product Image */}
-        <Image
-          src={selectedProduct ? selectedProduct.productImage : yellow}
-          alt={selectedProduct ? selectedProduct.name : "Yellow Flowers"}
-          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg product-main-image mx-auto"
-          width={300}
-          height={300}
-        />
+        <div className="w-full max-w-md flex justify-center">
+          <Image
+            src={selectedProduct ? selectedProduct.productImage : yellow}
+            alt={selectedProduct ? selectedProduct.name : "Yellow Flowers"}
+            className="w-full h-96 lg:h-[32rem] object-cover rounded-lg product-main-image"
+            width={300}
+            height={300}
+          />
+        </div>
       </div>
 
       {/* Right Section: Product Details */}
