@@ -152,7 +152,7 @@ export default function Flower() {
         <Image
           src={selectedProduct ? selectedProduct.productImage : yellow}
           alt={selectedProduct ? selectedProduct.name : "Yellow Flowers"}
-          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg product-main-image"
+          className="w-full h-96 lg:h-[32rem] object-cover rounded-lg product-main-image mx-auto"
           width={300}
           height={300}
         />
